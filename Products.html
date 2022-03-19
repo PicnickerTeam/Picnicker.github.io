@@ -1,0 +1,465 @@
+<?xml version = ″1.0″ encoding = ″utf-8″ ?>
+<!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+<html xmlns=″http://www.w3.org/1999/xhtml″>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+
+<head>
+  <title>Picnicker | Products</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f1f1f1;
+
+      font-family: Arial;
+    }
+
+    /* Center website */
+    .main {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 50px;
+      word-break: break-all;
+    }
+
+    .row {
+      margin: 8px -16px;
+    }
+
+    /*  padding  */
+    .row,
+    .row>.column {
+      padding: 10px;
+    }
+
+    /* two equal columns next to each other */
+    .column {
+      float: left;
+      width: 50%;
+    }
+
+    /* Clear floats after rows */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Content */
+    .content {
+      background-color: rgba(218, 216, 216, 0.301);
+      padding: 10px;
+    }
+
+    /*tables */
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+
+    }
+
+    td,
+    th {
+      border: 10px;
+      text-align: left;
+      padding: 10px;
+      background-color: white;
+    }
+
+    /*button */
+    .button {
+      background-color: rgb(43, 96, 114);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 16px;
+    }
+
+    /* footer */
+    .fixed-footer {
+      bottom: 0;
+      width: 100%;
+      background: #333;
+      padding: 10px 0;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* header */
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      height: 80px;
+      width: 100%;
+      background: #333;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 50px 50px 100px;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      color: #fff;
+      font-size: 35px;
+      font-weight: 600;
+      text-align: left;
+      padding-top: 20px;
+      float: left;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 5px;
+    }
+
+    nav ul li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #111;
+      background: #fff;
+    }
+
+    nav .menu-btn i {
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
+      nav {
+        padding: 0 40px 0 50px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      nav .menu-btn i {
+        display: block;
+      }
+
+      #click:checked~.menu-btn i:before {
+        content: "\f00d";
+      }
+
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #333;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+
+      }
+
+      nav ul li {
+        width: 100%;
+        margin: 40px 0;
+      }
+
+      nav ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+    }
+
+    .fixed-header {
+      top: 0;
+    }
+
+    .box {
+      padding-bottom: 290px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <div class="fixed-header">
+    <div class="fixed-header">
+      <nav>
+        <div class="logo"
+          style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          Picnicker</div>
+
+
+        <ul style="padding-left: 60px; padding-top: 35px;">
+          <li><a href="Home.html">Home</a></li>
+          <li><a class="active" href="Products.html">Products</a></li>
+          <li><a href="Payment.html">Payment</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="Contact_Us.html">Contact Us</a></li>
+          <li><a href="Login.html">Login</a></li>
+          <li><a href="SignUp.html">Sign in </a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <div class="box">
+    <div class="container">
+      <h2>Products</h2>
+      <p> Find out your favorite products here</p>
+
+      <ul class="nav nav-tabs">
+
+        <li><a data-toggle="tab" href="#menu1">Cinema</a></li>
+        <li><a data-toggle="tab" href="#menu2">Lighting</a></li>
+        <li><a data-toggle="tab" href="#menu3">Furnishing</a></li>
+      </ul>
+
+      <div class="tab-content">
+
+        <div id="menu1" class="tab-pane fade">
+          <h3>Cinema</h3>
+          <div class="row">
+            <div class="column">
+              <div class="content">
+                <img src="img\pro.PNG" alt="projector" style="width:100%">
+                <h3>WZATCO C3 LED Projector </h3>
+                <table>
+                  <tr>
+                    <td>Features</td>
+                    <td>
+                      <ul>
+                        <li>Full HD 1080P</li>
+                        <li>Built-in Android 10.0</li>
+                        <li>Support WIFI Bluetooth</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>110 OMR</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>15 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <img src="img\ca.PNG" alt="display" style="width:100%">
+                <h3>Simple Soft Movie Screen
+                </h3>
+                <table>
+                  <tr>
+                    <td>Material</td>
+                    <td>polyster</td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>about 150 inches (300*220cm)</td>
+                  </tr>
+                  <tr>
+                    <td>Packing List</td>
+                    <td>
+                      1*Projector Screen
+                      1*Sticky Hook Set (10pcs)</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>8 OMR </td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>7 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="menu2" class="tab-pane fade">
+          <h3>Lighting</h3>
+          <div class="row">
+            <div class="column">
+              <div class="content">
+                <img src="img\li.jpg" alt="Lighting" style="width:100%">
+                <h3>Warm white light</h3>
+                <table>
+                  <tr>
+                    <td>Usage</td>
+                    <td>arty holiday wedding decoration</td>
+                  </tr>
+                  <tr>
+                    <td>Length</td>
+                    <td>15 m</td>
+                  </tr>
+                  <tr>
+                    <td>Input Voltage(V)</td>
+                    <td>230 V</td>
+                  </tr>
+
+                  <tr>
+                    <td>Price</td>
+                    <td>5 OMR </td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>2 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <img src="img\lig.jpg" alt="Lighting" style="width:100%">
+                <h3>Outdoor rechargeable lamp</h3>
+                <table>
+                  <tr>
+                    <td>Usage</td>
+                    <td>Waterproof lighting</td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>14*8*8cm (80W)-10000LM</td>
+                  </tr>
+                  <tr>
+                    <td>Illumination duration</td>
+                    <td>80w (2-5h)</td>
+                  </tr>
+
+                  <tr>
+                    <td>Price</td>
+                    <td>2 OMR </td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>2 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="menu3" class="tab-pane fade">
+          <h3>Furnishing</h3>
+          <div class="row">
+            <div class="column">
+              <div class="content">
+                <img src="img\table.jpg" alt="tablee" style="width:100%">
+                <h3>Tea Table</h3>
+                <table>
+                  <tr>
+                    <td>Specific use</td>
+                    <td>Outdoor Table</td>
+                  </tr>
+                  <tr>
+                    <td>Weight</td>
+                    <td>4 Kg</td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>36.5*54*28(cm)</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>7 OMR </td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>5 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <img src="img\ch3.jpg" alt="chair" style="width:100%">
+                <h3>Chair</h3>
+                <table>
+                  <tr>
+                    <td>Specific use</td>
+                    <td>Outdoor chair</td>
+                  </tr>
+                  <tr>
+                    <td>Color</td>
+                    <td>Purble</td>
+                  </tr>
+                  <tr>
+                    <td>Size</td>
+                    <td>65*65*56 CM</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>11 OMR </td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Time</td>
+                    <td>4 days</td>
+                  </tr>
+                </table>
+                <a href="Payment.html"><button class="button">Buy Now</button></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-footer">
+    <div class="container2">Copyright &copy; 2022 Picnicker</div>
+  </div>
+</body>
+
+</html>
