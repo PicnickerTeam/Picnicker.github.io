@@ -1,7 +1,6 @@
 body,h3 {font-family:Georgia, 'Times New Roman', Times, serif, Helvetica, sans-serif;}
 * {box-sizing:border-box;}
 
-
 input[type=text], input[type=password],select, textarea {
   width: 100%;
   padding: 12px;
@@ -12,19 +11,13 @@ input[type=text], input[type=password],select, textarea {
   margin-bottom: 16px;
   resize: vertical;
 }
-
 input[type=submit],input[type=reset] {
   background-color: rgb(100, 99, 100);
   color: white;
   padding: 15px 50px;
   border: none;
   border-radius: 20px;
-  cursor: pointer;
-  
-}
-
-input[type=submit]:hover,input[type=reset]:hover {
-  background-color: rgb(27, 26, 27);
+  cursor: pointer;  
 }
 
 .container {
