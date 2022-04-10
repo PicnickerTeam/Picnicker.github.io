@@ -1,0 +1,119 @@
+<?xml version = ″1.0″ encoding = ″utf-8″ ?>
+<!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+<html xmlns=″http://www.w3.org/1999/xhtml″>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="formStyle.css">
+  <style>
+    .fixed-footer {
+      padding-top: 30pt;
+      bottom: 0;
+      width: 100%;
+      position: fixed;
+      background: #333;
+      padding: 10px 0;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+  <script type = "text/javaScript" src = "validate.js">
+
+  </script>
+
+
+  <title>Picnicker | Questionnaire </title>
+</head>
+
+<body>
+  <div class="fixed-header">
+    <div class="fixed-header">
+      <nav>
+        <div class="logo"
+          style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          Picnicker</div>
+
+
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Products.html">Products</a></li>
+          <li><a href="Payment.html">Payment</a></li>
+          <li><a href="AboutUs.html">About Us</a></li>
+          <li><a href="Contact_Us.html">Contact Us</a></li>
+          <li><a href="Login.html">Login</a></li>
+          <li><a href="SignUp.html">Sign Up </a></li>
+          <li><a href="funPage.html">Fun</a></li>
+          <li><a class="active" href="Questionnaire.html">Questionnaire</a></li>
+          <li><a href="Product_List.html">Product List </a></li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  
+ 
+  <h3 style="text-align: center;">Questionnaire</h3>
+  <div class="box">
+      <div class="container">
+          <form name="Quesionnare" action=""  onsubmit="">
+
+
+              <label for="name" >Your name:</label>
+              <input type ="text" placeholder="Enter your Full Name" id="userName" name="userName" value="" onblur="validateName()"/> </br>
+
+              <label for="email">Enter your email address:</label>
+              <input type="text" id="emailaddress" placeholder="Enter a valid email address" name="email" onblur="validateEmail()"/>            
+
+              <label for="From">Where did you hear about us?</label>
+              <br/><input type="radio" name="comeFrom" value="Instagram or Facebook"/> Instagram or Facebook
+              <br/><input type="radio" name="comeFrom" value="Email or newsletter" /> Email or newsletter
+              <br/><input type="radio" name="comeFrom" value="Search engine" /> Search engine
+              <br/><input type="radio" name="comeFrom" value="Word of mouth" /> Word of mouth
+              <br/><input type="radio" name="comeFrom" value="Other" /> Other
+              <br/><br/>
+
+              <label for="easy">How easy was it to find what you were looking for on our website?</label>
+              <br/><input type="radio" name="HowEasy" value="4"/> Extremely easy 
+              <br/><input type="radio" name="HowEasy" value="3" /> Very easy
+              <br/><input type="radio" name="HowEasy" value="2" /> Somewhat easy
+              <br/><input type="radio" name="HowEasy" value="1" /> Not so easy
+              <br/><input type="radio" name="HowEasy" value="0" /> Not at all easy
+              <br/><br/>
+
+              
+              
+              <label for="easy">What Kind of products you want us to add?</label><br/>
+              <input type="checkbox" id="pillows"> pillows<br/>
+              <input type="checkbox" id="mirror"> mirror<br/>
+              <input type="checkbox" id="candles"> candles<br/>
+              <input type="checkbox" id="tables"> tables<br/>
+              <input type="checkbox" id="Basket"> Basket<br/>
+              <br/>
+              
+
+              <label for="subject">Do you have suggestions on how we can improve our website?</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+              <input type="submit" class="btn btn-outline-dark" value="Submit" onclick="validateName();validateEmail();isChecked() ;"  id="submitForm"/> 
+              <input type = "reset"  class="btn btn-outline-dark"value = "Reset Form"/><br/><br/>
+
+          </form>
+      </div>
+  </div>
+  
+  
+    <div class="fixed-footer">
+      <div class="container2">
+        Copyright &copy; 2022 Picnicker
+      </div>
+    </div>
+  
+  </body>
+     
+  </html>

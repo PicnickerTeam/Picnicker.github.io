@@ -7,6 +7,8 @@
 </script>
 
 <head>
+  <script src="Calculate.js" async></script>
+  <link rel="stylesheet" href="Cart.css">
   <title>Picnicker | Products</title>
 
   <style>
@@ -126,9 +128,9 @@
     nav ul li a {
       color: #f2f2f2;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 500;
-      padding: 8px 15px;
+      padding: 8px 6px;
       border-radius: 5px;
       letter-spacing: 1px;
       transition: all 0.3s ease;
@@ -182,7 +184,7 @@
         width: 100%;
         margin-left: -100%;
         display: block;
-        font-size: 20px;
+        font-size: 10px;
         transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       }
     }
@@ -191,6 +193,10 @@
     }
     .box {
       padding-bottom: 290px;
+    }
+    .box1 {
+      padding-top:10px;
+      padding-bottom: 20px;
     }
   </style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -215,7 +221,10 @@
           <li><a href="AboutUs.html">About Us</a></li>
           <li><a href="Contact_Us.html">Contact Us</a></li>
           <li><a href="Login.html">Login</a></li>
-          <li><a href="SignUp.html">Sign in </a></li>
+          <li><a href="SignUp.html">Sign in </a>
+          <li><a href="funPage.html">Fun</a></li>
+          <li><a href="Questionnaire.html">Questionnaire</a></li>
+          <li><a href="Product_List.html">Product List </a></li>
         </ul>
       </nav>
     </div>
@@ -224,25 +233,45 @@
 
   <div class="box">
     <div class="container">
-      <h2>Products</h2>
-      <p> Find out your favorite products here</p>
+      
+      <div class="box1">
+        <div class="container">
+          <h2 >CART</h2>
+          <div class="cart-row">
+              <span class="cart-item cart-header cart-column">ITEM</span>
+              <span class="cart-price cart-header cart-column">PRICE</span>
+              <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+          </div>
+          <div class="cart-items">
+          </div>
+          <div class="cart-total">
+              <strong class="cart-total-title">Total</strong>
+              <span class="cart-total-price">$0</span>
+          </div>
+          <a href="Payment.html">
+          <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button></a>      
+      </div>
+    </div>
 
+    <h2>Products</h2>
+    <p> Find out your favorite products here</p>
       <ul class="nav nav-tabs">
 
-        <li><a data-toggle="tab" href="#menu1">Cinema</a></li>
-        <li><a data-toggle="tab" href="#menu2">Lighting</a></li>
-        <li><a data-toggle="tab" href="#menu3">Furnishing</a></li>
+        <li><a data-toggle="tab" href="#cinema">Cinema</a></li>
+        <li><a data-toggle="tab" href="#lighting">Lighting</a></li>
+        <li><a data-toggle="tab" href="#furnishing">Furnishing</a></li>
       </ul>
 
       <div class="tab-content">
 
-        <div id="menu1" class="tab-pane fade">
+        <div id="cinema" class="tab-pane fade">
           <h3>Cinema</h3>
           <div class="row">
             <div class="column">
               <div class="content">
-                <img src="img\pro.PNG" alt="projector" style="width:100%">
-                <h3>WZATCO C3 LED Projector </h3>
+                <div class="shop-item">
+                <img class="shop-item-image" src="img\pro.PNG" alt="projector" style="width:100%">
+                <h3 class="shop-item-title">WZATCO C3 LED Projector </h3>
                 <table>
                   <tr>
                     <td>Features</td>
@@ -256,21 +285,24 @@
                   </tr>
                   <tr>
                     <td>Price</td>
-                    <td>110 OMR</td>
+                    <td class="shop-item-price" >$110</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>15 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
+                <button type= "button" class="button shop-item-button">Add To Cart</button></a>
               </div>
             </div>
+          </div>
+
+
             <div class="column">
               <div class="content">
-                <img src="img\ca.PNG" alt="display" style="width:100%">
-                <h3>Simple Soft Movie Screen
-                </h3>
+                <div class="shop-item">
+                <img class="shop-item-image" src="img\ca.PNG" alt="display" style="width:100%">
+                <h3 class="shop-item-title">Simple Soft Movie Screen</h3>
                 <table>
                   <tr>
                     <td>Material</td>
@@ -288,27 +320,28 @@
                   </tr>
                   <tr>
                     <td>Price</td>
-                    <td>8 OMR </td>
+                    <td class="shop-item-price">$8</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>7 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
-
+                <button class="button shop-item-button">Add To Cart</button></a>
+              </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="menu2" class="tab-pane fade">
+        <div id="lighting" class="tab-pane fade">
           <h3>Lighting</h3>
           <div class="row">
             <div class="column">
               <div class="content">
-                <img src="img\li.jpg" alt="Lighting" style="width:100%">
-                <h3>Warm white light</h3>
+                <div class="shop-item"></div>
+                <img class="shop-item-image" src="img\li.jpg" alt="Lighting" style="width:100%">
+                <h3 class="shop-item-title">Warm white light</h3>
                 <table>
                   <tr>
                     <td>Usage</td>
@@ -325,21 +358,22 @@
 
                   <tr>
                     <td>Price</td>
-                    <td>5 OMR </td>
+                    <td class="shop-item-price">$5</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>2 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
-
+                <button class="button shop-item-button">Add To Cart</button></a>
+              </div>
               </div>
             </div>
             <div class="column">
               <div class="content">
-                <img src="img\lig.jpg" alt="Lighting" style="width:100%">
-                <h3>Outdoor rechargeable lamp</h3>
+                <div class="shop-item">
+                <img class="shop-item-image" src="img\lig.jpg" alt="Lighting" style="width:100%">
+                <h3 class="shop-item-title">Outdoor rechargeable lamp</h3>
                 <table>
                   <tr>
                     <td>Usage</td>
@@ -356,28 +390,28 @@
 
                   <tr>
                     <td>Price</td>
-                    <td>2 OMR </td>
+                    <td class="shop-item-price">$2</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>2 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
-
+                <button class="button shop-item-button">Add To Cart</button></a>
+              </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <div id="menu3" class="tab-pane fade">
+        <div id="furnishing" class="tab-pane fade">
           <h3>Furnishing</h3>
           <div class="row">
             <div class="column">
               <div class="content">
-                <img src="img\table.jpg" alt="tablee" style="width:100%">
-                <h3>Tea Table</h3>
+                <div class="shop-item">
+                <img  class="shop-item-image" src="img\table.jpg" alt="tablee" style="width:100%">
+                <h3 class="shop-item-title">Tea Table</h3>
                 <table>
                   <tr>
                     <td>Specific use</td>
@@ -393,21 +427,22 @@
                   </tr>
                   <tr>
                     <td>Price</td>
-                    <td>7 OMR </td>
+                    <td class="shop-item-price">$7</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>5 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
-
+                <button class="button shop-item-button">Add To Cart</button></a>
+              </div>
               </div>
             </div>
             <div class="column">
               <div class="content">
-                <img src="img\ch3.jpg" alt="chair" style="width:100%">
-                <h3>Chair</h3>
+                <div class="shop-item">
+                <img class="shop-item-image" src="img\ch3.jpg" alt="chair" style="width:100%">
+                <h3 class="shop-item-title">Chair</h3>
                 <table>
                   <tr>
                     <td>Specific use</td>
@@ -423,15 +458,15 @@
                   </tr>
                   <tr>
                     <td>Price</td>
-                    <td>11 OMR </td>
+                    <td class="shop-item-price">$11</td>
                   </tr>
                   <tr>
                     <td>Delivery Time</td>
                     <td>4 days</td>
                   </tr>
                 </table>
-                <a href="Payment.html"><button class="button">Buy Now</button></a>
-
+                <button class="button shop-item-button">Add To Cart</button></a>
+              </div>
               </div>
             </div>
           </div>

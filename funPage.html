@@ -1,0 +1,215 @@
+<?xml version = ″1.0″ encoding = ″utf-8″ ?>
+<!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body{
+        background-color: rgb(243, 243, 243);
+      }
+      td {
+        width:110px;
+        height:110px;
+        text-align:center;
+        font-size:25px;
+      }
+      </style>
+
+    <style>
+      .fixed-footer {
+        padding-top: 30pt;
+        bottom: 0;
+        width: 100%;
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+        text-align: center;
+      }
+    </style>
+    <title>Picnicker | Fun</title>
+  </head>
+
+  <body onkeydown="keyPressed(event)">
+    <div class="fixed-header">
+      <div class="fixed-header">
+        <nav>
+          <div
+            class="logo"
+            style="
+              font-family: 'Trebuchet MS', 'Lucida Sans Unicode',
+                'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            "
+          >
+            Picnicker
+          </div>
+
+          <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="Payment.html">Payment</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Contact_Us.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="SignUp.html">Sign Up </a></li>
+            <li><a class="active"  href="funPage.html">Fun</a></li>
+            <li>
+              <a href="Questionnaire.html">Questionnaire</a>
+            </li>
+            <li><a href="Product_List.html">Product List </a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div style="padding: 175px 300px 0px 700px ;">
+    <table border="1">
+      <tr>
+      <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+      <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+      <td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+      <td></td><td></td><td></td><td></td>
+      </tr>
+      </table>
+
+    </div>
+
+  <div style="padding-top:230px">
+  <div class="fixed-footer">
+    <div class="container2">
+      Copyright &copy; 2022 Picnicker
+    </div>
+  </div>
+</div>
+
+
+<script>
+  /*
+  -------> Puzzle Game <-------
+  - This Game works when the user Presses the keyboard's directional keys
+  -1- specify a specific array where it holds the correct order of the puzzle 
+  -2- create another empty array which will be filled randomly through do loop
+  -3- drawPuzzle FUNCTION will draw the puzzle in a random order and checks if it is solved
+  -4- check which directional key of the keyboard is pressed
+  -5- do the change in the order of the puzzle depending on which directional key of the keyboard is pressed
+  -6- check each time a part is moved if the puzzle is solved then alert a message "You won!"
+  -7- draw the puzzle again 
+  */
+
+  // assigning numbers from 0 to (number of cells - 1) for the array variable v
+  var v = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0];  
+  // declaring an empty array
+  var u = [];
+  // counter variable 
+  var n = 0;
+  
+
+  // This loop is to fill the array l randomly
+  do {
+    // to get an index number between 0 and 15
+    ri = Math.floor(Math.random()*(v.length));
+    // assign the value of the index ri to the variable r
+    r = v[ri];
+
+    // check if r not equal to -1 
+    if(r!=-1) {
+      u.push(r);   // then add the value of r to array l
+      v[ri] = -1;
+      n+=1;    // increment n by 1
+    }
+  
+  } while(n<16);  // the loop is repeated until the condition is false
+  
+  
+  
+  
+  
+  // This function draws the puzzle randomly by adding pictures to the cells of the table
+  function drawPuzzle() {
+    for(i=0;i<16;i++) {
+      document.getElementsByTagName('td')[i].innerHTML = '<img src="img/'+u[i]+'.jpg">';
+    }
+    chkWin();  // checks if the puzzle is solved
+  }
+  
+  
+  function keyPressed(e) {
+    k = e.keyCode;    // assigns the key pressed code value to k
+    if(k==38) {mvUp();}
+    if(k==40) {mvDown();}
+    if(k==37) {mvLeft();}
+    if(k==39) {mvRight();}
+  }
+  
+  // this function is excuted when arrow down key is pressed so it changes the places of the parts of puzzle
+  // and it moves a part of the puzzle down
+  function mvDown() {
+    if(u.indexOf(0)>4) {
+      i = u.indexOf(0);
+      j = i - 4;
+      temp = u[i];
+      u[i] = u[j];
+      u[j] = temp;
+      drawPuzzle();
+    }
+  }
+ // this function is excuted when arrow up key is pressed 
+ // and it moves a part of the puzzle up
+  function mvUp() {
+    if(u.indexOf(0)<12) {
+      i = u.indexOf(0);
+      j = i + 4;
+      temp = u[i];
+      u[i] = u[j];
+      u[j] = temp;
+      drawPuzzle();
+    }
+  }
+  // this function is excuted when arrow right key is pressed
+ // and it moves a part of the puzzle to the right
+  function mvRight() {
+    i = u.indexOf(0);
+    if(!(i==0 || i==4 || i==8 || i==12)) {
+      j = i - 1;
+      temp = u[i];
+      u[i] = u[j];
+      u[j] = temp;
+      drawPuzzle();
+    }
+  }
+  // this function is excuted when arrow left key is pressed
+  // and it moves a part of the puzzle left
+  function mvLeft() {
+    i = u.indexOf(0);
+    if(!(i==3 || i==7 || i==11 || i==15)) {
+      j = i + 1;
+      temp = u[i];
+      u[i] = u[j];
+      u[j] = temp;
+      drawPuzzle();
+    }
+  }
+  
+  // checks if the puzzle is solved and alerts the message "You Won!"
+  function chkWin() {
+    var a = 1;
+    for(i=0;i<14;i++) {
+      if(u[i]!=i+1) {a = 0;}
+    }
+    if(a==1) {alert('You Won!');}
+  }
+
+  drawPuzzle();  // again draws the puzzle
+
+  </script>  
+</body>
+  
+  </html>

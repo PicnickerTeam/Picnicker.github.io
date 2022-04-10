@@ -1,0 +1,181 @@
+<?xml version = ″1.0″ encoding = ″utf-8″ ?>
+<!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
+<html xmlns=″http://www.w3.org/1999/xhtml″>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+
+<script type="text/javascript">
+
+
+var products = [
+    {section: "cinema", name:"WZATCO C3 LED Projector", price:"110"},
+    {section: "cinema", name:"Simple Soft Movie Screen", price:"8"},
+    {section: "furnishing", name:"Tea Table", price:"7"},
+    {section: "furnishing", name:"Chair", price:"11"}];
+   
+
+    window.onload = () => {
+    loadtableData(products);
+};
+  function loadtableData(products){
+    const tableBody = document.getElementById("myTable");
+    let dataHtml='';
+
+    for(let p of products){
+        dataHtml+=`<tr><td>${p.section}</td><td>${p.name}</td><td>${p.price}</td></tr>`;
+
+    }
+    console.log(dataHtml)
+    tableBody.innerHTML = dataHtml;
+}
+
+
+
+function searchClick(){
+    var namee = document.getElementById("searchName").value;
+    
+    if(found(namee, products)){ alert("yes, it is found");}
+    else { alert("it is not found");}}
+
+function found(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+      
+        if (myArray[i].name == nameKey) {
+           return true;}}
+
+        return false;} 
+
+
+
+  function addToTable(){
+      var formData = readData();
+      insertRow(formData);
+    }
+
+    function readData(){
+     var formData= {};
+     formData["section"] = document.getElementById("sectionn").value;
+     formData["name"] = document.getElementById("namme").value;
+     formData["price"] = document.getElementById("pricee").value;
+     return formData;
+
+    }
+    function insertRow(data){
+      var table = document.getElementById("ta").getElementsByTagName('tbody')[0];
+      var newRow = table.insertRow(table.length);
+      cell1 = newRow.insertCell(0);
+      cell1.innerHTML = data.section;
+      cell2 = newRow.insertCell(1);
+      cell2.innerHTML = data.name;
+      cell3 = newRow.insertCell(2);
+      cell3.innerHTML = data.price;
+      
+    }
+  
+
+
+
+
+
+
+
+</script>
+<style>
+ table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 80%;
+    } 
+  td, th {
+      border: 10px;
+      text-align: center;
+      padding: 10px;
+      background-color: rgb(234, 242, 249);
+    }
+</style>
+</head>
+<title>Picnicker | Payment</title>
+
+<body>
+        <div class="fixed-header">
+          <div class="fixed-header">
+            <nav>
+              <div class="logo"
+                style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                Picnicker</div>
+      
+      
+              <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="Payment.html">Payment</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Contact_Us.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="SignUp.html">Sign Up </a></li>
+            <li><a href="funPage.html">Fun</a></li>
+            <li><a href="Questionnaire.html">Questionnaire</a></li>
+            <li><a class="active" href="Product_List.html">Product List </a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div  >
+          <h1 style="text-align: center; padding: 15px;">Product List</h1>
+          <table  style="text-align: center; width: 100%;" id="ta">
+            <thead>
+              <tr>
+              <th>section</th>
+              <th>name</th>
+              <th>price</th>
+              </tr>
+            </thead>
+            <tbody id="myTable"></tbody>
+          </table>
+        </div>
+
+
+        <div >
+          <form style="width: 100%; align-items: center;" onsubmit="event.preventDefault();addToTable();">
+            
+            <label for="searchName">Search about name of a product:</label>
+            <input type="text" id="searchName" >
+            <input style="background-color: rgb(43, 96, 114);color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px; border: none;" type="button" value="Search" onclick="searchClick()"><br>
+            <h3 style="padding-top: 35px; padding-bottom: 10px; font-family:'Franklin Gothic Medium', 
+            'Arial Narrow', Arial, sans-serif; text-align: left; 
+            ">Enter the data of what you wish for products</h3><br>
+            <label for="sectionn">Section:</label>
+            <input type="text" id="sectionn" name="sectionn" ><br><br>
+            <label for="namme">Name:</label>
+            <input type="text" id="namme" name="namme" ><br><br>
+            <label for="pricee">Price:</label>
+            <input type="text" id="pricee" name="pricee" ><br><br>
+            <input type="submit"  value="Add to table" style="background-color: rgb(43, 96, 114);color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 16px; border: none;">
+            
+          
+        </div>
+
+    
+        <div class="fixed-footer">
+            <div class="container2">Copyright &copy; 2022 Picnicker</div>
+          </div>
+</body>
+</html>

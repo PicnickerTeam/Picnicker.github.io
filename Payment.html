@@ -61,6 +61,14 @@
       border-radius: 20px;
       cursor: pointer;
     }
+    input[type=button] {
+      background-color: rgb(100, 99, 100);
+      color: white;
+      padding: 15px 50px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
     input[type=submit]:hover {
       background-color: rgb(27, 26, 27);
     }
@@ -87,6 +95,70 @@
     }
   </style>
   <title>Picnicker | Payment</title>
+  <script type="text/javascript">
+    var cust = [
+    {FullName: "Omar", Email:"Omar99@gmail.com", Address:"5673, ALKhoud", City:"Muscat"},
+    {FullName: "Rahma", Email:"Raham@gmail.com", Address:"669, Saham", City:"Oman"}];
+   
+
+    window.onload = () => {
+    loadtableData(cust);
+};
+  function loadtableData(cust){
+    const tableBody = document.getElementById("tabbody");
+    let dataHtml='';
+
+    for(let p of cust){
+        dataHtml+=`<tr><td>${p.FullName}</td><td>${p.Email}</td><td>${p.Address}</td><td>${p.City}</td></tr>`;
+
+    }
+    console.log(dataHtml)
+    tableBody.innerHTML = dataHtml;
+}
+
+
+
+function searchClick(){
+    var namee = document.getElementById("searchN").value;
+    
+    if(found(namee, cust)){ alert("yes, it is found");}
+    else { alert("it is not found");}}
+
+function found(nameKey, myArray){
+    for (var i=0; i < myArray.length; i++) {
+      
+        if (myArray[i].FullName == nameKey) {
+           return true;}}
+
+        return false;} 
+
+    function checkout(){
+      var formData = readData();
+      insertRow(formData);
+    }
+
+    function readData(){
+     var formData= {};
+     formData["FullName"] = document.getElementById("fname").value;
+     formData["Email"] = document.getElementById("email").value;
+     formData["Address"] = document.getElementById("adr").value;
+     formData["City"] = document.getElementById("city").value;
+     return formData;
+
+    }
+    function insertRow(data){
+      var table = document.getElementById("costumer").getElementsByTagName('tbody')[0];
+      var newRow = table.insertRow(table.length);
+      cell1 = newRow.insertCell(0);
+      cell1.innerHTML = data.FullName;
+      cell2 = newRow.insertCell(1);
+      cell2.innerHTML = data.Email;
+      cell3 = newRow.insertCell(2);
+      cell3.innerHTML = data.Address;
+      cell4 = newRow.insertCell(3);
+      cell4.innerHTML = data.City;
+    }
+  </script>
 </head>
 
 <body>
@@ -106,6 +178,9 @@
           <li><a href="Contact_Us.html">Contact Us</a></li>
           <li><a href="Login.html">Login</a></li>
           <li><a href="SignUp.html">Sign Up </a></li>
+          <li><a href="funPage.html">Fun</a></li>
+          <li><a href="Questionnaire.html">Questionnaire</a></li>
+          <li><a href="Product_List.html">Product List </a></li>
         </ul>
       </nav>
     </div>
@@ -115,7 +190,7 @@
   <div class="row" style="padding: 20px 10px 10px 10px;">
     <div class="col-75">
       <div class="container">
-        <form action="/action_page.php">
+        <form action="/action_page.php" onsubmit="event.preventDefault();checkout();">
 
           <div class="row">
             <div class="col-50">
@@ -159,18 +234,33 @@
           <label>
             <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
           </label>
-          <input type="submit" value="Continue to checkout">
+          
+          <input type="submit" value="Add your Billing Address to our custumer list">
+          <label for="searchName">Search about name of a custumer:</label>
+            <input type="text" id="searchN"  >
+            <input type="button" value="Search" onclick="searchClick()">
+
         </form>
       </div>
     </div>
     <div class="col-25">
       <div class="container">
-        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>3</b></span></h4>
-        <p><a href="#">Product 1</a> <span class="price">15 OMR</span></p>
-        <p><a href="#">Product 2</a> <span class="price">7 OMR</span></p>
-        <p><a href="#">Product 3</a> <span class="price">8 OMR</span></p>
-        <hr>
-        <p>Total <span class="price" style="color:red"><b>30 OMR</b></span></p>
+        <h4>Costumer datails</h4>
+        <table id = "costumer" style="text-align: center; border: black; width: 100%;">
+          <thead >
+          <tr>
+            <th> Full Name</th>
+            <th> Email</th>
+            <th> Address</th>
+            <th>City</th>
+          </tr>
+          </thead>
+          <tbody id="tabbody">
+
+          </tbody>
+        </table>
+       
+       
       </div>
     </div>
   </div>
@@ -179,5 +269,6 @@
   </div>
 
 </body>
+
 
 </html>

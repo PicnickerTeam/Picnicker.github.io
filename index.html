@@ -1,25 +1,73 @@
 <?xml version = ″1.0″ encoding = ″utf-8″ ?>
 <!DOCTYPE html PUBLIC ″-//W3C//DTD XHTML 1.0 Strict//EN″ http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd>
 <html xmlns=″http://www.w3.org/1999/xhtml″>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-</script>
-
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <style>
     .fixed-footer {
       padding-top: 30pt;
       bottom: 0;
       width: 100%;
-      position: fixed;
       background: #333;
       padding: 10px 0;
       color: #fff;
       text-align: center;
     }
+    * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+}
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #ffffff;
+  font-size: 12px;
+  padding: 8px 135px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
   </style>
+ 
   <title>Picnicker | Home </title>
 </head>
 
@@ -40,30 +88,101 @@
           <li><a href="Contact_Us.html">Contact Us</a></li>
           <li><a href="Login.html">Login</a></li>
           <li><a href="SignUp.html">Sign Up </a></li>
+          <li><a href="funPage.html">Fun</a></li>
+          <li><a href="Questionnaire.html">Questionnaire</a></li>
+          <li><a href="Product_List.html">Product List </a></li>
+        
         </ul>
       </nav>
     </div>
   </div>
 
 
-  <div class="content">
+  <div class="content" >
     <div>
-      <p style="padding-top: 30pt; padding-bottom: 10pt;">Welcome To Picnicker!, This Is Where You Can Find The Best
+      <p style="padding-top: 50px; padding-bottom: 10px;">This Is Where You Can Find The Best
         Picnic Equipments
       </p>
     </div>
-    <div>
-      <img src="img/picnicImg1.jpg" alt="Picture of comets" width="470" height="300" class="float-start;" />
-      <img src="img/picnicImg2.jpg" alt="Picture of comets" width="470" height="300"  class="float-end" />
+    <div style="padding-bottom: 30px;">
+      <div>
+        <div class="slideshow-container" style="text-align:center">
+        
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="img/picnicImg1.jpg" style="width:70%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="img/picnicImg2.jpg" style="width:70%">
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="img/picnicImg3.jpg" style="width:70%">
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        </div>
+    </div>
+
+
+    <div class="scrolling">
+      <P> Welcome to the website! Today is <span id="date"></span>, and the time is <span id="time"></span></P>
     </div>
   </div>
+  
+  
 
+<div style="padding-top:850px">
   <div class="fixed-footer">
     <div class="container2">
       Copyright &copy; 2022 Picnicker
     </div>
   </div>
+</div>
 
+<script>
+  var today = new Date();
+
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  document.getElementById("date").innerHTML = date
+  document.getElementById("time").innerHTML = time
+  
+  let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+        
+
+</script>
 </body>
 
 </html>
