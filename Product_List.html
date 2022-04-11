@@ -9,17 +9,18 @@
 
 <script type="text/javascript">
 
-
+//Array of objects
 var products = [
     {section: "cinema", name:"WZATCO C3 LED Projector", price:"110"},
     {section: "cinema", name:"Simple Soft Movie Screen", price:"8"},
     {section: "furnishing", name:"Tea Table", price:"7"},
     {section: "furnishing", name:"Chair", price:"11"}];
    
-
+  //to display table data on loading
     window.onload = () => {
     loadtableData(products);
 };
+//function to display information from array to the table body
   function loadtableData(products){
     const tableBody = document.getElementById("myTable");
     let dataHtml='';
@@ -33,13 +34,19 @@ var products = [
 }
 
 
-
+//function to search information from array and display alert message to tell whether the 
+// sought information is found or not.
+//searchlick() function takes the information from user through text box and apply found() function. 
+//it displays alert message to tell whether the information is found or not. 
 function searchClick(){
     var namee = document.getElementById("searchName").value;
     
-    if(found(namee, products)){ alert("yes, it is found");}
-    else { alert("it is not found");}}
+    if(found(namee, products)){ alert("yes, it is found");} //if found() return true
+    else { alert("it is not found");} //if found() return false
+  }
 
+// found() function search the information from the array.
+//the parameters are nameKey: the information to search about, myArray: the array to search from.
 function found(nameKey, myArray){
     for (var i=0; i < myArray.length; i++) {
       
@@ -49,13 +56,14 @@ function found(nameKey, myArray){
         return false;} 
 
 
-
-  function addToTable(){
+//function to add the new row to the table
+function addToTable(){
       var formData = readData();
       insertRow(formData);
     }
 
-    function readData(){
+// it reads the data from textbox
+function readData(){
      var formData= {};
      formData["section"] = document.getElementById("sectionn").value;
      formData["name"] = document.getElementById("namme").value;
@@ -63,7 +71,8 @@ function found(nameKey, myArray){
      return formData;
 
     }
-    function insertRow(data){
+//function to insert new row and cells with contents that were gotten from readData() function
+function insertRow(data){
       var table = document.getElementById("ta").getElementsByTagName('tbody')[0];
       var newRow = table.insertRow(table.length);
       cell1 = newRow.insertCell(0);

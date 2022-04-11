@@ -96,14 +96,16 @@
   </style>
   <title>Picnicker | Payment</title>
   <script type="text/javascript">
+    //Array of objects
     var cust = [
     {FullName: "Omar", Email:"Omar99@gmail.com", Address:"5673, ALKhoud", City:"Muscat"},
     {FullName: "Rahma", Email:"Raham@gmail.com", Address:"669, Saham", City:"Oman"}];
    
-
+    //to display table data on loading
     window.onload = () => {
     loadtableData(cust);
 };
+//function to display information from array to the table body
   function loadtableData(cust){
     const tableBody = document.getElementById("tabbody");
     let dataHtml='';
@@ -117,13 +119,18 @@
 }
 
 
-
+//function to search information from array and display alert message to tell whether the 
+// sought information is found or not.
+//searchlick() function takes the information from user through text box and apply found() function. 
+//it displays alert message to tell whether the information is found or not. 
 function searchClick(){
     var namee = document.getElementById("searchN").value;
     
     if(found(namee, cust)){ alert("yes, it is found");}
     else { alert("it is not found");}}
 
+// found() function search the information from the array and return boolean value.
+//the parameters are nameKey: the information to search about, myArray: the array to search from.
 function found(nameKey, myArray){
     for (var i=0; i < myArray.length; i++) {
       
@@ -132,12 +139,14 @@ function found(nameKey, myArray){
 
         return false;} 
 
-    function checkout(){
+//function to add the new row to the table
+function checkout(){
       var formData = readData();
       insertRow(formData);
     }
 
-    function readData(){
+// it reads the data from textbox
+function readData(){
      var formData= {};
      formData["FullName"] = document.getElementById("fname").value;
      formData["Email"] = document.getElementById("email").value;
@@ -146,7 +155,10 @@ function found(nameKey, myArray){
      return formData;
 
     }
-    function insertRow(data){
+    
+//function to insert new row and cells with contents that were gotten from readData() function
+function insertRow(data){
+     //table body variabel
       var table = document.getElementById("costumer").getElementsByTagName('tbody')[0];
       var newRow = table.insertRow(table.length);
       cell1 = newRow.insertCell(0);
@@ -245,7 +257,7 @@ function found(nameKey, myArray){
     </div>
     <div class="col-25">
       <div class="container">
-        <h4>Costumer datails</h4>
+        <h4>Customer datails</h4>
         <table id = "costumer" style="text-align: center; border: black; width: 100%;">
           <thead >
           <tr>
