@@ -151,5 +151,14 @@ nav .menu-btn i{
       transform: translateX(-100%);
     }
   }
+#linkBack{
+  color:#828282;
+  font-style: italic;
+}
+#linkBack:hover{
+  color:#828282;
+  font-style: italic;
+}
+
   
  

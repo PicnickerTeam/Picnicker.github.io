@@ -8,36 +8,19 @@
   <link rel="stylesheet" href="styles.css">
 
 <script type="text/javascript">
-
+ 
 //Array of objects
 var products = [
     {section: "cinema", name:"WZATCO C3 LED Projector", price:"110"},
     {section: "cinema", name:"Simple Soft Movie Screen", price:"8"},
     {section: "furnishing", name:"Tea Table", price:"7"},
     {section: "furnishing", name:"Chair", price:"11"}];
-   
-  //to display table data on loading
-    window.onload = () => {
-    loadtableData(products);
-};
-//function to display information from array to the table body
-  function loadtableData(products){
-    const tableBody = document.getElementById("myTable");
-    let dataHtml='';
-
-    for(let p of products){
-        dataHtml+=`<tr><td>${p.section}</td><td>${p.name}</td><td>${p.price}</td></tr>`;
-
-    }
-    console.log(dataHtml)
-    tableBody.innerHTML = dataHtml;
-}
-
-
+  
 //function to search information from array and display alert message to tell whether the 
 // sought information is found or not.
 //searchlick() function takes the information from user through text box and apply found() function. 
 //it displays alert message to tell whether the information is found or not. 
+
 function searchClick(){
     var namee = document.getElementById("searchName").value;
     
@@ -55,43 +38,7 @@ function found(nameKey, myArray){
 
         return false;} 
 
-
-//function to add the new row to the table
-function addToTable(){
-      var formData = readData();
-      insertRow(formData);
-    }
-
-// it reads the data from textbox
-function readData(){
-     var formData= {};
-     formData["section"] = document.getElementById("sectionn").value;
-     formData["name"] = document.getElementById("namme").value;
-     formData["price"] = document.getElementById("pricee").value;
-     return formData;
-
-    }
-//function to insert new row and cells with contents that were gotten from readData() function
-function insertRow(data){
-      var table = document.getElementById("ta").getElementsByTagName('tbody')[0];
-      var newRow = table.insertRow(table.length);
-      cell1 = newRow.insertCell(0);
-      cell1.innerHTML = data.section;
-      cell2 = newRow.insertCell(1);
-      cell2.innerHTML = data.name;
-      cell3 = newRow.insertCell(2);
-      cell3.innerHTML = data.price;
-      
-    }
-  
-
-
-
-
-
-
-
-</script>
+</script> 
 <style>
  table {
       font-family: arial, sans-serif;
@@ -127,7 +74,6 @@ function insertRow(data){
             <li><a href="SignUp.html">Sign Up </a></li>
             <li><a href="funPage.html">Fun</a></li>
             <li><a href="Questionnaire.html">Questionnaire</a></li>
-            <li><a href="Suggestion.html">Suggestion</a></li>
             <li><a class="active" href="Product_List.html">Product List </a></li>
               </ul>
             </nav>
@@ -145,14 +91,73 @@ function insertRow(data){
               </tr>
             </thead>
             <tbody id="myTable"></tbody>
+            <?php
+
+
+              // a class creates objects hold the section,name and price of the product
+              class Product {
+                // Properties
+                public $section;
+                public $name;
+                public $price;
+
+
+                // Method to construct an object
+                public function __construct($section,$name,$price){
+                  $this->section = $section;
+                  $this->name = $name;
+                  $this->price = $price;
+              }
+              // Method to add a row to the table
+                public function addRow(){
+                  echo '<tr><td>' . $this->section.'</td><td>'.$this->name.'</td><td>'.$this->price.'</td></tr>';
+              }
+                }
+                // array holds objects of type Product
+                $products = array();
+                
+                $product1 = new Product('Cinema','WZATCO C3 LED Projector','110');
+                $products[] = $product1;
+                
+                $product2 = new Product('Cinema','Simple Soft Movie Screen','8');
+                $products[] = $product2;
+                
+                $product3 = new Product('Furnishing','Tea Table','7');
+                $products[] = $product3;
+                
+                $product4 = new Product('Furnishing','Chair','11');
+                $products[] = $product4;
+
+                //display table rows
+                foreach($products as $Product){
+                  $Product->addRow();
+                }
+                //check if submit button is clicked
+              if(array_key_exists('add', $_POST)) {
+                // call the function add 
+                add();
+              }
+
+              function add() {
+                // this function gets the data from a form
+                $section = $_POST['sectionn'];
+                $name = $_POST['namme'];
+                $price = $_POST['pricee'];
+                // creates a new object
+                $newProduct = new Product($section,$name,$price);
+                // add th eobject to the array 
+                $products[] = $newProduct;
+                // display a new row to the table 
+                $newProduct->addRow();
+              }
+          ?>
           </table>
         </div>
 
-
         <div >
-          <form style="width: 100%; align-items: center;" onsubmit="event.preventDefault();addToTable();">
+          <form style="width: 100%; align-items: center;" method="POST">
             
-            <label for="searchName">Search about name of a product:</label>
+          <label for="searchName">Search about name of a product:</label>
             <input type="text" id="searchName" >
             <input style="background-color: rgb(43, 96, 114);color: white;
             padding: 10px 20px;
@@ -171,16 +176,14 @@ function insertRow(data){
             <input type="text" id="namme" name="namme" ><br><br>
             <label for="pricee">Price:</label>
             <input type="text" id="pricee" name="pricee" ><br><br>
-            <input type="submit"  value="Add to table" style="background-color: rgb(43, 96, 114);color: white;
+            <input type="submit"  value="Add to table" name="add" style="background-color: rgb(43, 96, 114);color: white;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             margin: 4px 2px;
             cursor: pointer;
-            border-radius: 16px; border: none;">
-            
-          
+            border-radius: 16px; border: none;">      
         </div>
 
     

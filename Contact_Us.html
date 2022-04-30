@@ -10,9 +10,10 @@
 <head>
   <link rel="stylesheet" href="formStyle.css">
   <link rel="stylesheet" href="styles.css">
-
+  <script type = "text/javaScript" src = "validate.js"></script>
+  <title>Picnicker | Contact Us</title>
 </head>
-<title>Picnicker | Contact Us</title>
+
 
 <body>
   <div class="fixed-header">
@@ -33,6 +34,7 @@
           <li><a href="SignUp.html">Sign Up </a></li>
           <li><a href="funPage.html">Fun</a></li>
           <li><a href="Questionnaire.html">Questionnaire</a></li>
+          <li><a href="Suggestion.html">Suggestion</a></li>
           <li><a href="Product_List.html">Product List </a></li>
         </ul>
       </nav>
@@ -43,32 +45,22 @@
   <h3 style="text-align: center;">CONTACT US</h3>
 
   <div class="container">
-    <form action="mailto:picnickerteam@gmail.com">
+    <form action="mail.php" id="contact-form" method="POST">
       <label for="name">Name</label>
-      <input type="text" id="name" name="fullname" placeholder="Your Full Name..">
+      <input type="text" name="name" placeholder="Your Full Name..">
 
       <label for="email">Email</label>
-      <input type="text" id="email" name="customeremail" placeholder="Your Email..">
+      <input type="text" id="email" name="email" placeholder="Your Email..">
 
-      <label for="telephone">Telephone</label>
-      <input type="text" id="telephone" name="telephone" placeholder="Your Phone Number..">
-
-      <label for="about">Contacting about:</label>
-      <select id="about" name="about">
-        <option value="selection">Please select</option>
-        <option value="change">CHANGE OF MIND</option>
-        <option value="delay delivery">DELAYED DELIVERY</option>
-        <option value="item not received ">ITEM NOT RECEIVED</option>
-        <option value="order cancellation">ORDER CANCELLATION</option>
-        <option value="refunds/replacements">REFUNDS/REPLACEMENTS</option>
-        <option value="other">OTHER</option>
+      <label for="subject">Contacting about:</label>
+      <input type="text" id="subject" name="subject" placeholder="Contacting about..">
 
       </select>
 
-      <label for="subject">Comment</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
 
-      <input type="submit" class="btn btn-outline-dark" value="Submit">
+      <input type="submit" class="btn btn-outline-dark" value="Send">
     </form>
   </div>
 
